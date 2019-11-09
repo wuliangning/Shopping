@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace的名字需要跟接口的类名一致 -->
+<mapper namespace="com.ssm.dao.WaresMapper">
+	
+	
+	<insert id="add" parameterType="com.ssm.model.Wares">
+		insert into wares (id,wareName,wareDate,wareWhere,wareMoney) 
+			values (#{id},#{wareName},#{wareDate},#{wareWhere},#{wareMoney})
+	</insert>
+	
+	<update id="update" parameterType="com.ssm.model.Wares">
+		update wares set wareName=#{wareName},wareDate=#{wareDate},wareWhere=#{wareWhere},wareMoney=#{wareMoney} where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="com.ssm.model.Wares">
+		delete from wares where id=#{id}
+	</delete>
+	
+	<select id="getUserList" resultType="com.ssm.model.Wares">
+		select * from wares
+	</select>
+	
+	<select id="getWares" resultType="com.ssm.model.Wares">
+		select * from wares where id=#{id}
+	</select>
+	
+</mapper>

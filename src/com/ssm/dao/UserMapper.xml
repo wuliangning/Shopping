@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace的名字需要跟接口的类名一致 -->
+<mapper namespace="com.ssm.dao.UserMapper">
+	
+	
+	<insert id="add" parameterType="com.ssm.model.User">
+		insert into user (id,userName) 
+			values (#{id},#{userName})
+	</insert>
+	
+	<update id="update" parameterType="com.ssm.model.User">
+		update user set userName=#{userName} where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="com.ssm.model.User">
+		delete from user where id=#{id}
+	</delete>
+	
+	<select id="getUserList" resultType="com.ssm.model.User">
+		select * from user
+	</select>
+	
+</mapper>
